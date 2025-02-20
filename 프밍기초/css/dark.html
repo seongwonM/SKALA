@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다크 모드 토글</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .mode-text {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .radio-group {
+            margin-top: 10px;
+        }
+
+        .dark-mode {
+            background: #222;
+            color: white;
+        }
+
+        .light-mode {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <h1>다크 모드 토글</h1>
+        <div class="radio-group">
+            <input type="radio" id="light" name="mode" checked>
+            <label for="light">화이트</label>
+            <input type="radio" id="dark" name="mode">
+            <label for="dark">다크</label>
+        </div>
+        <p class="mode-text">라디오 버튼을 선택하여 모드를 변경해보세요!</p>
+    </div>
+
+    <script>
+        const lightMode = document.getElementById("light");
+        const darkMode = document.getElementById("dark");
+        const body = document.body;
+
+        lightMode.addEventListener("change", () => {
+            body.classList.remove("dark-mode");
+            body.classList.add("light-mode");
+        });
+
+        darkMode.addEventListener("change", () => {
+            body.classList.remove("light-mode");
+            body.classList.add("dark-mode");
+        });
+    </script>
+</body>
+</html>

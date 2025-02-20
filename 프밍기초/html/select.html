@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과일 선택</title>
+    <script>
+        function updateInput() {
+            var selectBox = document.getElementById("fruitSelect");
+            var inputBox = document.getElementById("selectedFruit");
+            inputBox.value = selectBox.value;
+        }
+    </script>
+</head>
+<body>
+    <h2>좋아하는 과일을 선택하세요</h2>
+
+    <!-- 과일 선택 드롭다운 -->
+    <label for="fruitSelect">과일 목록:</label>
+    <select id="fruitSelect" onchange="updateInput()">
+        <option value="">-- 과일 선택 --</option>
+        <option value="사과">사과</option>
+        <option value="바나나">바나나</option>
+        <option value="포도">포도</option>
+        <option value="딸기">딸기</option>
+        <option value="오렌지">오렌지</option>
+    </select>
+
+    <br><br>
+
+    <!-- 선택한 과일을 표시하는 입력창 -->
+    <label for="selectedFruit">선택한 과일:</label>
+    <input type="text" id="selectedFruit" readonly>
+
+</body>
+</html>

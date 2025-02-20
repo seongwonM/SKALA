@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바쁜 현대인들을 위한 주식 자동매매 시스템</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, h3 {
+            color: #fedd5c;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #555;
+        }
+
+        .team-list, .tech-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .team-list li, .tech-list li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            color: #fbe99f;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #fbe99f;
+            color: #000;
+        }
+
+        .code-block {
+            background: #222;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            background: #fbe99f;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #fbe99f;
+        }
+
+        /* 이력서로 돌아가기 버튼 스타일 */
+        .resume-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #ffcc00, #ff6600);
+            color: white;
+            text-decoration: none;
+            font-size: 0.8em;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .resume-btn i {
+            margin-right: 8px;
+        }
+
+        /* 버튼 hover 효과 */
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 204, 0, 0.3);
+        }
+
+        /* 연락처 정보 (가운데 정렬) */
+        .contact-info {
+            text-align: center;
+            font-size: 1.1em;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 아이콘 크기 및 간격 조정 */
+        .contact-info i {
+            font-size: 1.3em;
+            margin: 0 10px;
+        }
+
+        .contact-info a {
+            color: #f6e7ab;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1><i class="fas fa-chart-line"></i> 바쁜 현대인들을 위한 주식 자동매매 시스템</h1>
+
+    <div class="section">
+        <h2><i class="fas fa-calendar-alt"></i> 프로젝트 기간</h2>
+        <p>📅 <span class="highlight">2024.03 - 2024.06</span></p>
+    </div>
+
+    <div class="section">
+        <h2><i class="fas fa-users"></i> 팀원</h2>
+        <ul class="team-list">
+            <li>👨‍💻 <span class="highlight">송항영</span> - 팀장, 프론트엔드/UI·UX 개발</li>
+            <li>🧑‍💻 <span class="highlight">문성원</span> - Transformer 기반 모델 구축/UI·UX 디자인</li>
+            <li>👨‍💻 <span class="highlight">안정우</span> - 백엔드/DB 및 모델 결합</li>
+            <li>🧑‍💻 <span class="highlight">이승헌</span> - TimesNet 기반 모델 구축</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2><i class="fas fa-info-circle"></i> 프로젝트 개요</h2>
+        <p>📊 기술 발전으로 인해 주식 시장이 더욱 활성화되었지만, 개인 투자자들은 시간 부족으로 어려움을 겪고 있습니다.</p>
+        <p>💡 <span class="highlight">딥러닝과 매매 전략</span>을 결합하여 자동매매 시스템을 개발하고, <span class="highlight">1시간 단위 데이터 분석</span>을 통해 세밀한 투자 전략을 수립합니다.</p>
+    </div>
+
+    <div class="section">
+        <h2><i class="fas fa-bullseye"></i> 프로젝트 목표</h2>
+        <ul class="tech-list">
+            <li>✅ <span class="highlight">1시간 단위 데이터 수집 및 분석</span></li>
+            <li>✅ 기존 매매 전략 + AI 모델 결합</li>
+            <li>✅ 다양한 종목에 적용 가능한 일반화 모델 개발</li>
+            <li>✅ 바쁜 현대인들을 위한 자동매매 시스템 구현</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2><i class="fas fa-code"></i> 사용 기술</h2>
+        <ul class="tech-list">
+            <li>🖥️ <span class="highlight">개발 언어:</span> Python</li>
+            <li>📊 <span class="highlight">분석 도구:</span> Pandas, Numpy, Scikit-learn, TensorFlow</li>
+            <li>🤖 <span class="highlight">머신러닝 모델:</span> LSTM, Transformer, TimesNet, DLinear</li>
+            <li>📈 <span class="highlight">데이터 시각화:</span> Matplotlib, Seaborn</li>
+            <li>🔗 <span class="highlight">백엔드:</span> Flask, FastAPI</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2><i class="fas fa-chart-bar"></i> 실험 결과</h2>
+        <table>
+            <tr>
+                <th>종목</th>
+                <th>투자 전략</th>
+                <th>기존 Buy & Hold</th>
+                <th>프로젝트 모델 적용 후</th>
+                <th>수익 상승폭</th>
+            </tr>
+            <tr>
+                <td>한화오션</td>
+                <td>성장형 (Transformer)</td>
+                <td>7.54%</td>
+                <td><span class="highlight">8.58%</span></td>
+                <td><span class="highlight">+1.04%</span></td>
+            </tr>
+            <tr>
+                <td>삼성공조</td>
+                <td>안정형 (TimesNet)</td>
+                <td>-10.238%</td>
+                <td><span class="highlight">2.05%</span></td>
+                <td><span class="highlight">+12.288%</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2><i class="fas fa-link"></i> 관련 링크</h2>
+        <a href="files/시연영상.mp4" class="btn">📂 시연 영상 다운로드</a>
+        <a href="files/바쁜현대인들을위한주식자동매매.pdf" class="btn">📄 프로젝트 보고서</a>
+    </div>
+    
+    <div class="section">
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-envelope"></i> moonjmmm@gmail.com |
+                <i class="fas fa-phone"></i> 010-4104-3872 |
+                <i class="fab fa-instagram"></i> <a href="https://www.instagram.com/holy____1/" target="_blank">Instagram</a> |
+                <i class="fab fa-github"></i> <a href="https://github.com/seongwonM" target="_blank">Github</a>
+            </p>
+            <a href="resume.html" class="resume-btn"><i class="fas fa-arrow-left"></i> 이력서로 돌아가기</a>
+           
+        </div>
+    </div>    
+
+</div>
+
+</body>
+</html>

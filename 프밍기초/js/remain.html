@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 합계 계산</title>
+</head>
+<body>
+    <h2>숫자 입력 (쉼표로 구분)</h2>
+    <input type="text" id="numberInput" placeholder="예: 1,2,3">
+    <button onclick="handleSubmit()">계산</button>
+    <p id="result"></p>
+
+    <script>
+        function addNumbers(...numbers) {
+            let sum = 0;
+            for (let number of numbers) {
+                sum += number;
+            }
+            return sum;
+        }
+
+        function handleSubmit() {
+            const inputText = document.getElementById("numberInput").value;
+            
+            // 입력값을 ','로 나누고 숫자로 변환
+            const numberArray = inputText.split(",").map(num => parseFloat(num.trim()));
+
+            // 숫자가 아닌 값이 포함되었는지 확인
+            if (numberArray.some(isNaN)) {
+                alert("올바른 숫자를 입력하세요.");
+                return;
+            }
+
+            const result = addNumbers(...numberArray);
+            document.getElementById("result").textContent = "합계: " + result;
+        }
+    </script>
+</body>
+</html>

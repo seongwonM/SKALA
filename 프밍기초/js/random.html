@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 숫자 & UUID 생성</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>랜덤 숫자 & UUID 생성기</h2>
+    <button onclick="generateRandomNumber()">6자리 랜덤 숫자 생성</button>
+    <button onclick="generateUUID()">UUID 생성</button>
+
+    <p id="randomNumber"></p>
+    <p id="uuid"></p>
+
+    <script>
+        // 6자리 랜덤 숫자 생성 함수
+        function generateRandomNumber() {
+            const randomNumber = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById("randomNumber").textContent = "랜덤 숫자: " + randomNumber;
+        }
+
+        // UUID 생성 함수 (crypto.randomUUID() 지원 여부 확인)
+        function generateUUID() {
+            if (crypto.randomUUID) {
+                const uuid = crypto.randomUUID();
+                document.getElementById("uuid").textContent = "UUID: " + uuid;
+            } else {
+                document.getElementById("uuid").textContent = "이 브라우저는 UUID 생성을 지원하지 않습니다.";
+            }
+        }
+    </script>
+
+</body>
+</html>

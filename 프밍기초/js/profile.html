@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이름과 나이 출력</title>
+</head>
+<body>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name" />
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" placeholder="Enter your age" />
+
+    <button onclick="handleSubmit()">Submit</button>
+
+    <p id="result"></p>
+
+    <script>
+        function displayInfo(name = 'Guest', age = 0) {
+            const message = name + " is " + age + " years old.";
+            console.log(message);
+            document.getElementById("result").textContent = message;
+        }
+
+        function handleSubmit() {
+            const name = document.getElementById("name").value.trim();
+            const age = document.getElementById("age").value.trim();
+
+            // 이름이 문자열인지 체크 (문자열이 아니면 trim()에서 에러 발생할 수도 있지만, input에서 가져오므로 일반적으로 필요 없음)
+            const nameNumber = parseInt(name, 10);
+            if (name == "" || !isNaN(nameNumber)) {
+                alert("이름이 문자열이 아닙니다.");
+                return;
+            }
+
+            // 나이가 숫자인지 체크
+            const ageNumber = parseInt(age, 10);
+            if (isNaN(ageNumber)) {
+                alert("나이가 숫자가 아닙니다.");
+                return;
+            }
+
+            displayInfo(name, ageNumber);
+        }
+    </script>
+</body>
+</html>
+

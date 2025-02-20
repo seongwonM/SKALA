@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        // 객체
+        const person = {
+            name: "홍길동",
+            age: 30,
+            job: "의적",
+            skills: ["검술", "전략", "분신"],
+            shadow: "검은색"
+        };
+
+        console.log(Object.keys(person)) // 키 출력
+        console.log(Object.values(person)) // 값 출력
+        console.log(Object.entries(person)) // [키, 값] 출력
+
+        // 복사
+        const person2 = {address : "조선"}
+        Object.assign(person2, person) // address는 안사라짐
+
+        console.log(person2)
+
+        person2.skills.push("창던지기")
+
+        console.log(person) // person에도 창던지기가 추가됨 -> assign은 얕은 복사이기 때문 (아마 메모리 공유하는듯?)
+        */
+
+
+        const person = {
+            name: "홍길동",
+            age: 30,
+            job: "의적",
+            skills: ["검술", "전략", "분신"],
+            shadow: "검은색"
+        };
+
+        /*
+        const duplicatedPerson = {
+            name: "홍길동",
+            age: 30,
+            job: "의적",
+            skills: ["검술", "전략"],
+        };
+        */
+
+        duplicatedPerson = JSON.parse(JSON.stringify(person));
+
+        delete duplicatedPerson.shadow; // shadow 삭제
+
+        duplicatedPerson.skills.pop(); // 분신 삭제
+
+        console.log(duplicatedPerson)
+        console.log(person)
+
+    </script>
+
+</body>
+</html>

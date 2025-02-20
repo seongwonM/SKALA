@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        function checkDay() {
+            let day = document.getElementById("dayInput").value;
+            let result = ""; // result를 array로 해서 break를 사용하지 않고 특별한 알고리즘을 만들 수도 있음.
+
+            switch (day) {
+                case "Monday":
+                    result = "월요일";
+                    break;
+                case "Tuesday":
+                    result = "화요일";
+                    break;
+                case "Wednesday":
+                    result = "수요일";
+                    break;
+                case "Thursday":
+                    result = "목요일";
+                    break;
+                case "Friday":
+                    result = "금요일";
+                    break;
+                case "Saturday":
+                    result = "토요일";
+                    break;
+                case "Sunday":
+                    result = "일요일";
+                    break;
+                default:
+                    result = "기타 (잘못된 입력)";
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+
+    </script>
+
+    <h2>요일 확인기</h2>
+    <input type="text" id="dayInput" placeholder="요일 입력 (Monday~Sunday)">
+    <button onclick="checkDay()">확인</button>
+    <p id="result"></p>
+   
+</body>
+</html>

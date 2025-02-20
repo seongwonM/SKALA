@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        // const vs let
+        const num1 = 10;
+        console.log(num1);
+        num1=30; // 에러
+        console.log(num1);
+
+        const num2; // 에러
+        console.log(num2);
+        num2=30;
+        console.log(num2);
+
+        let num=10;
+        console.log(num);
+        num=30;
+        console.log(num);
+        */
+
+        /*
+        // bool 타입
+        const boolean1 = true;
+        const boolean2 = false;
+        console.log(boolean1);
+        console.log(boolean2);
+        
+
+        let boolean3 = 10<20; // const도 가능 -> why? : 오른쪽 먼저 연산되기 때문
+        let boolean4 = 10>20;
+        console.log(boolean3);
+        console.log(boolean4);
+        */
+
+        /*
+        // 정수, 실수
+        let num1 = 10;
+        let num2 = 0.1;
+        console.log(num1, num2);
+        
+        let sum = num1 + num2;
+        console.log(sum);
+        */
+
+        /*
+        // 배열
+        let studentScore = [80, 70, 90, 60]; // 국어, 영어, 수학, 과학 점수
+        studentScore.push(33) // 값 추가 pop: 제거
+        console.log(studentScore[1]); // 70, 1번 인덱스(영어)의 데이터에 접근
+        console.table(studentScore);
+        */
+
+        /*
+        // 객체
+        let studentScore = {
+        koreanScore:80,
+        englishScore:70,
+        mathScore:90,
+        scienceScore:60
+        };
+        console.log(studentScore.koreanScore); // 80
+        console.log(studentScore['englishScore']); // 70
+        console.log(studentScore["englishScore"]); // 큰 따옴표
+        console.log(studentScore[`englishScore`]); // 백틱
+        console.log(studentScore);
+        console.log(studentScore.toString()); // 별 의미는 없는듯
+        */
+
+        /*
+        // undefined, null
+        let something; // const는 불가능
+        console.log(something); // undefined
+        
+        let nothing = null; // const도 가능, undefined도 가능
+        console.log(nothing); // null
+
+        console.log(something == nothing) // true (느슨한비교 : 자료형을 알아서 변환)
+        console.log(something === nothing) // false (엄격한비교 : 자료형이 다르면 다름)
+        console.log(1=="1") // true (느슨한비교 : 자료형을 알아서 변환)
+        console.log(1==="1") // false (엄격한비교 : 자료형이 다르면 다름)
+        console.log(0==false) // true (느슨한비교 : 자료형을 알아서 변환)
+        console.log(0===false) // false (엄격한비교 : 자료형이 다르면 다름)
+        */
+
+        /*
+        // 문자열 & \
+        let string1 = "Hello, World!";
+        let string2 = 'Hello, World!'; 
+        let string3 = `Hello, World!1`; 
+        console.log(string1, string2, string3); // 다 같음
+        console.log(string1 === string2) // 엄격해도 같음
+
+        let string4 = "Hello, 'World'!";
+        let string5 = 'Hello, "World"!'; 
+        let string6 = `Hello, 'World'!"'1'"`; 
+        console.log(string4, string5, string6);
+
+        console.log("Hello, \"World\"!")
+        console.log("Hello, \nWorld!") // 줄 바꿈
+        */
+
+        /*
+        // 문자열 연산
+        let message = '머리와 몸통' + '꽁무니';
+        console.log(message);
+
+        let num1 = 3; 
+        let num2 = 8;
+        let result =`${num1} 곱하기 ${num2}은 ${num1 * num2}입니다.`;
+        console.log(result);
+        */
+
+        /*
+        // 숫자 -> 문자열
+        let num = 123;
+        let str1 = String(num);
+        console.log(str1); // "123"
+        console.log(typeof str1); // "string”
+
+        let str2 = num.toString(); // 숫자에 내장된 함수 toString() 반면 parseInt는 그냥 내장함수
+        console.log(str2); // "123"
+        console.log(typeof str2); // "string"
+
+        let str3 = `${num}`;
+        console.log(str3); // "123"
+        console.log(typeof str3); // "string"
+
+        let str4 = num + ""; // '', `` 도 가능
+        console.log(str4); // "123"
+        console.log(typeof str4); // "string"
+        */
+
+        /*
+        // 문자열 -> 숫자
+        let str = "123";
+        let num1 = Number(str);
+        console.log(num1); // 123
+        console.log(typeof num1); // "number"
+
+        let num2 = parseInt(str, 10); // 10은 진법을 의미 (선호되는 사용방식)
+        console.log(num2); // 123
+        console.log(typeof num2); // "number"
+
+        let num3 = +str;
+        console.log(num3); // 123
+        console.log(typeof num3); // "number"
+
+        let num4 = str * 1;
+        console.log(num4); // 123
+        console.log(typeof num4); // "number"
+        */
+
+        /*
+        // if, else 문
+        let score = 85; // 75는 불합격
+        if (score>=80) {
+            console.log('합격입니다.');
+        }
+        else{
+            console.log('불합격입니다.');
+        }
+        */
+
+        /*
+        // else if 문
+        let age = 18;
+        if (age < 13) {
+            console.log("어린이");
+        } else if (age < 20) {
+            console.log("청소년");
+        } else if (age >= 65) {
+            console.log("노인");
+        } else {
+            console.log("성인");
+        }
+        */
+
+        /*
+        // switch문 - break를 쓰지 않으면 fall-through(떨어지기) 현상이 발생하여 다음 case가 실행됨 (break 만날때까지 계속 내려감)
+        let day = "Monday";
+        switch (day) {
+            case "Monday":
+                console.log("월요일");
+                break;
+            case "Tuesday":
+                console.log("화요일");
+                break;
+            case "Wednesday":
+                console.log("수요일");
+                break;
+            case "Thursday":
+                console.log("목요일");
+                break;
+            case "Friday":
+                console.log("금요일");
+                break;
+            case "Saturday":
+                console.log("토요일");
+                break;
+            case "Sunday":
+                console.log("일요일");
+                break;
+            default:
+                console.log("기타");
+        }
+        */
+
+        /*
+        // for문 - basic
+        for (let i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        
+        const arr = ["바나나", "사과", "자몽"];
+
+        for(let I = 0; I < arr.length; I++){
+            console.log(arr[I]);
+        }
+        */
+
+        /*
+        // for문 - break, continue
+        for (let i = 0; i < 10; i++) {
+            if (i === 5) {
+                break; // 반복문 종료
+            }
+            console.log(i);
+        }
+            
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 === 0) {
+                continue; // 짝수일 때는 건너뜀
+            }
+            console.log(i);
+        }
+        */
+
+        /*
+        // while 문
+        let count = 0;
+        while (count < 3) {
+            console.log(count);
+            count++;
+        }
+        */
+
+        /*
+        // do while 문
+        let num = 0;
+        do {
+            console.log(num);
+            num++;
+        } while (num < 3);
+        */
+
+        /*
+        // for in - 객체의속성(key)을반복할때사용
+        let obj = { name: '홍길동', age: 28, company: '활빈당' };
+        for (let key in obj) {
+            console.log(key, obj[key]);
+        }
+        */
+
+        /*
+        // for of - 반복가능한객체(배열, 문자열등)의엘리먼트값을반복
+        let arr = [10, 20, 30];
+        for (let value of arr) {
+            console.log(value);
+        }
+        */
+
+        /*
+        // 중첩 for문
+        for (let i = 0; i < 3; i++) {      // 외부 반복문      
+            for (let j = 0; j < 3; j++) {  // 내부 반복문
+                console.log(`i: ${i}, j: ${j}`);
+            }
+        }
+        */
+
+        /*
+        // 배열
+        const original = [1, 2, 3];
+        const copy = [...original];
+        console.log(copy); // [1, 2, 3]
+
+        const arr1 = [1, 2];
+        const arr2 = [3, 4];
+        const merged = [...arr1, ...arr2];
+        console.log(merged); // [1, 2, 3, 4]
+
+        const str = "hello";
+        const arr3 = [...str];
+        console.log(arr3); // ['h', 'e', 'l', 'l', 'o']
+
+        const arr4 = [2, 3];
+        const newArr = [1, ...arr4, 4];
+        console.log(newArr); // [1, 2, 3, 4]
+        */
+
+        /*
+        // 동적 배열
+        const arr = [1, 2, 3, 4]; 
+        console.log(arr);
+        arr.length = 5; // 길이를 변경하여 빈공간 확보
+        console.log(arr); // 비어있음(empty)로 남은 공간이 채워짐
+        arr[4] = 10;
+        console.log(arr);
+        arr.push(11);  // push를 통해 엘리먼트 추가
+        console.log(arr);
+        */
+
+        /*
+        // 함수
+        function displayInfo(name, age) {
+            console.log(name + " is " + age + " years old.");
+        }
+        displayInfo("Alice", 25); // "Alice is 25 years old." 출력
+        */
+
+        /*
+        // 매개변수
+        function addNumbers(...numbers) {
+            let sum = 0;
+            for (let number of numbers) {
+                sum += number;
+            }
+            return sum;
+        }
+        console.log(addNumbers(1, 2, 3));  // 6 출력
+        console.log(addNumbers(4, 5, 6, 7));  // 22 출력
+        */
+
+        /*
+        // 비구조화(destructing)
+        function greet({ name, age }) {
+            console.log(name + " is " + age + " years old.");
+        }
+        const person = { name: "Alice", age: 25 };
+        greet(person); // "Alice is 25 years old." 출력
+        
+        function sum([a, b, c]) {
+            return a + b + c;
+        }
+        console.log(sum([1, 2, 3])); // 6 출력
+        */
+
+        /*
+        //비구조화2
+        function greet(name, age) {
+            console.log(name + " is " + age + " years old.");
+            const person = { name: name, age: age };
+            return person
+        }
+        
+        const { name, age } = greet('앨리스', 25); // 객체에서 destructing으로 추출 - person의 name과 age라서 가능
+        console.log( name, age );
+        */
+
+        /*
+        // 호이스팅(hoisting) - 변수
+        console.log(a); // undefined
+        var a = 5;
+        console.log(a); // 5
+
+        console.log(b); // ReferenceError: Cannot access 'b' before initialization
+        let b = 10;
+        */
+
+        /*
+        // 호이스팅 - 함수
+        console.log(foo()); // "Hello"
+        function foo() {
+            return "Hello";
+        }
+
+        console.log(bar()); // TypeError: bar is not a function
+        var bar = function() {
+            return "World";
+        };
+        */
+
+    </script>
+
+</body>
+</html>

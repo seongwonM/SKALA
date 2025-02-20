@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사칙연산 계산기</title>
+    <script type="module" src="main.js" defer></script>
+    <style>
+        input[type="number"] {
+            width: 80px;
+            text-align: center;
+        }
+        .num-control {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>사칙연산 계산기</h1>
+
+    <div class="num-control">
+        <button onclick="changeNumber('num1', -1)">&#9665;</button>
+        <input type="number" id="num1" value="0" step="1">
+        <button onclick="changeNumber('num1', 1)">&#9655;</button>
+    </div>
+
+    <div class="num-control">
+        <button onclick="changeNumber('num2', -1)">&#9665;</button>
+        <input type="number" id="num2" value="0" step="1">
+        <button onclick="changeNumber('num2', 1)">&#9655;</button>
+    </div>
+
+    <div>
+        <button onclick="handleCalculation('+')">&#43;</button>  <!-- + -->
+        <button onclick="handleCalculation('-')">&#8722;</button> <!-- − -->
+        <button onclick="handleCalculation('*')">&#215;</button>  <!-- × -->
+        <button onclick="handleCalculation('/')">&#247;</button>  <!-- ÷ -->
+    </div>
+
+    <div>
+        <h2>결과: <span id="result">0</span></h2>
+    </div>
+</body>
+</html>
+
+
+

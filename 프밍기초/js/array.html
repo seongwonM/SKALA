@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 출력기</title>
+    <script>
+        function printArray() {
+            let inputText = document.getElementById("wordInput").value;
+            let arr = inputText.split(",").map(word => word.trim()); // 쉼표로 분리하고 앞뒤 공백 제거
+            let result = "";
+
+            for (let i = 0; i < arr.length; i++) {
+                result += arr[i] + "<br>";
+                if (arr[i] == '바나나') {
+                    break;
+                }
+            }
+
+            document.getElementById("result").innerHTML = result; // 줄바꿈 적용
+        }
+    </script>
+</head>
+<body>
+    <h2>배열 출력기</h2>
+    <input type="text" id="wordInput" placeholder="단어 입력 (예: 바나나, 사과, 자몽)">
+    <button onclick="printArray()">출력</button>
+    <p id="result"></p>
+</body>
+</html>

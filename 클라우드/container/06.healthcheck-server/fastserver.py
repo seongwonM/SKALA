@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Form
-from fastapi.responses import Response  # Response를 명확히 가져옴
+from fastapi.responses import Response
 from fastapi.responses import HTMLResponse, JSONResponse
 import psutil
+import os
 from prometheus_client import Gauge, generate_latest, CONTENT_TYPE_LATEST
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -154,9 +155,15 @@ def ready():
     else:
         return JSONResponse({"status": "NOT READY"}, status_code=503)
 
+@app.get("/info")
+def info():
+    skala_info = os.getenv("SKALA_INFO")
+    user_info = os.getenv("USER_NAME")
+    if skala_info:
+        return JSONResponse({"info": skala_info, "user": user_info})
+    else:
+        return JSONResponse({"message": "SKALA_INFO environment variable is not set"}, status_code=404)
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8080)
-
-
-

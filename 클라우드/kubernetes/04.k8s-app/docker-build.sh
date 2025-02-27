@@ -1,5 +1,5 @@
 #!/bin/bash
-NAME=skala
+NAME=sk000
 IMAGE_NAME="webserver"
 VERSION="2.0.0"
 

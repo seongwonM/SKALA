@@ -1,6 +1,9 @@
 from fastapi import FastAPI, Form
+from fastapi.responses import Response
 from fastapi.responses import HTMLResponse, JSONResponse
 import psutil
+import os
+from prometheus_client import Gauge, generate_latest, CONTENT_TYPE_LATEST
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -8,9 +11,16 @@ app = FastAPI()
 
 # Initial state
 data = {
-    "server_status": "정상",
+    "server_status": "장애",
     "ready_status": "준비중"
 }
+
+# Prometheus Metrics 정의
+cpu_usage_gauge = Gauge("cpu_usage_percent", "Current CPU usage percentage")
+memory_total_gauge = Gauge("memory_total_bytes", "Total memory in bytes")
+memory_available_gauge = Gauge("memory_available_bytes", "Available memory in bytes")
+memory_used_gauge = Gauge("memory_used_bytes", "Used memory in bytes")
+memory_free_gauge = Gauge("memory_free_bytes", "Free memory in bytes")
 
 # HTML Template for root endpoint
 HTML_TEMPLATE = """
@@ -114,6 +124,23 @@ def metrics():
     }
     return JSONResponse(metrics_data)
 
+@app.get("/prometheus")
+def prometheus_metrics():
+    try:
+        # 현재 시스템 상태 업데이트
+        cpu_usage_gauge.set(psutil.cpu_percent())
+        memory_info = psutil.virtual_memory()
+        memory_total_gauge.set(memory_info.total)
+        memory_available_gauge.set(memory_info.available)
+        memory_used_gauge.set(memory_info.used)
+        memory_free_gauge.set(memory_info.free)
+
+        # Prometheus 형식으로 응답 반환
+        return Response(content=generate_latest(), media_type=CONTENT_TYPE_LATEST)
+
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+
 @app.get("/healthz")
 def healthz():
     if data["server_status"] == "정상":
@@ -128,7 +155,15 @@ def ready():
     else:
         return JSONResponse({"status": "NOT READY"}, status_code=503)
 
+@app.get("/info")
+def info():
+    skala_info = os.getenv("SKALA_INFO")
+    user_info = os.getenv("USER_NAME")
+    if skala_info:
+        return JSONResponse({"info": skala_info, "user": user_info})
+    else:
+        return JSONResponse({"message": "SKALA_INFO environment variable is not set"}, status_code=404)
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8080)
-
